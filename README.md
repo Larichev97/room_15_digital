@@ -11,13 +11,13 @@
 
 1. Выполнить в териминале проекта или внутри PHP контейнера (docker compose exec ....) команду: <b>composer install</b>
 <br/><br/>
-2. Создать БД и настроить подключение в файле <b>.env</b> (MySQL).
+2. Создать БД (utf8mb4 + utf8mb4_general_ci) и настроить подключение в файле <b>.env</b> (MySQL).
 <br/>
 Настройки по умолчанию:
    - DB_CONNECTION=mysql
    - DB_HOST=127.0.0.1
    - DB_PORT=3306
-   - DB_DATABASE=room_15_dijital
+   - DB_DATABASE=room_15_digital
    - DB_USERNAME=root
    - DB_PASSWORD=
 <br/><br/>
