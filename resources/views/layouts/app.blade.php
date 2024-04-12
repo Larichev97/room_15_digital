@@ -16,17 +16,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Scripts -->
+
     <!-- Подключение скриптов Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="{{ $class ?? '' }}" style="position: relative; min-height: 100%;">
     <div id="app">
         @include('components.navbars.navbar-top')
 
-        <main class="py-4">
+        <main class="py-4" >
             @yield('content')
         </main>
     </div>
+
+    @include('components.footers.footer')
 
     @stack('js')
 </body>
