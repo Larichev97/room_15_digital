@@ -6,7 +6,6 @@ use App\DataTransferObjects\Product\ProductStoreDTO;
 use App\DataTransferObjects\Product\ProductUpdateDTO;
 use App\Http\Requests\Product\ProductStoreRequest;
 use App\Http\Requests\Product\ProductUpdateRequest;
-use App\Models\Product;
 use App\Repositories\CurrencyRepository;
 use App\Repositories\ProductRepository;
 use App\Services\CrudActionsServices\ProductServices\ProductService;
