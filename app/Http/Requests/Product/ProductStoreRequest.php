@@ -24,7 +24,7 @@ final class ProductStoreRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255|unique:products,title',
-            'price' => 'required|decimal:2',
+            'price' => 'required|decimal:2|min:0.00',
             'currency_id' => 'required|min:1|integer',
         ];
     }

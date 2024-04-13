@@ -10,6 +10,6 @@
         </th>
     @endforeach
 
-    <th class="text-center text-dark text-xs font-weight-bolder opacity-8">Дії</th>
+    <th class="text-center text-dark text-xs font-weight-bolder opacity-8">{{ __('Дії') }}</th>
 </tr>
 @endif

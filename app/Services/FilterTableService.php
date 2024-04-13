@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-class FilterTableService
+final class FilterTableService
 {
     /**
      * @param array $allFieldsData

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container py-4">
-        @include('components.breadcrumbs', ['title' => 'Товари'])
+        @include('components.breadcrumbs', ['title' => __('Товари')])
         @include('components.alert')
 
         <div class="row justify-content-center align-items-center">
@@ -11,11 +11,11 @@
                     <div class="card-header">
                         <div class="row mb-2">
                             <div class="col-4">
-                                <h5>Список товарів</h5>
+                                <h5>{{ __('Список товарів') }}</h5>
                             </div>
                             <div class="col-8 d-flex">
-                                <a class="btn btn-success" href="{{ route('products.create') }}" style="margin-left: auto">Додати товар</a>
-                                <a class="btn btn-danger" href="{{ route('products.index') }}" style="margin-left: 15px;">Очистити фільтр</a>
+                                <a class="btn btn-success" href="{{ route('products.create') }}" style="margin-left: auto">{{ __('Додати товар') }}</a>
+                                <a class="btn btn-danger" href="{{ route('products.index') }}" style="margin-left: 15px;">{{ __('Очистити фільтр') }}</a>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                                                         {{-- Выпадающий список --}}
                                                         @if('select' === $displayedFieldArray['field_input_type'])
                                                             <select class="form-control" name="filter_{{ $currentFieldName }}" id="filter_{{ $currentFieldName }}">
-                                                                <option value="0" @if($isObjectFilterFiles && empty($filterFieldsObject->$currentFieldName)) selected="selected" @endif>Виберіть зі списку...</option>
+                                                                <option value="0" @if($isObjectFilterFiles && empty($filterFieldsObject->$currentFieldName)) selected="selected" @endif>{{ __('Виберіть зі списку...') }}</option>
 
                                                                 @if('currency_id' === $currentFieldName && !empty($currenciesListData))
                                                                     @foreach($currenciesListData as $currencyItem)
@@ -60,7 +60,7 @@
                                                 @endforeach
 
                                                 <th class="text-center text-secondary font-weight-bolder">
-                                                    <button type="submit" class="btn btn-info" style="margin-bottom: 0;">Фільтр</button>
+                                                    <button type="submit" class="btn btn-info" style="margin-bottom: 0;">{{ __('Фільтр') }}</button>
                                                 </th>
                                             </form>
                                         </tr>
@@ -87,7 +87,7 @@
                                 {!! $products->links('components.pagination') !!}
                             </div>
                         @else
-                            <h2>Товарів немає</h2>
+                            <h2>{{ __('Товарів немає') }}</h2>
                         @endif
                     </div>
                 </div>
