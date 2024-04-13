@@ -20,12 +20,12 @@
 
                     <div class="row mt-4">
                         <div class="col-6 mb-xl-0 mb-4">
-                            <a href="{{ route('products.index') }}">
+                            <a href="{{ route('products.index') }}" style="color: #f83033;">
                                 <div class="card">
                                     <div class="card-body p-3">
                                         <div class="row" style="color: #f83033;">
                                             <div class="col-8">
-                                                <p class="text-sm mb-0 text-uppercase font-weight-bold">{{ __('Товари') }}</p>
+                                                <p class="text-sm mb-0 text-uppercase fw-bold">{{ __('Товари') }}</p>
                                             </div>
                                             <div class="col-4 text-end">
                                                 <div class="icon icon-shape bg-gradient-dark shadow-primary text-center rounded-circle">
@@ -38,12 +38,12 @@
                             </a>
                         </div>
                         <div class="col-6 mb-xl-0 mb-4">
-                            <a href="#">
+                            <a href="#" style="color: #f83033;">
                                 <div class="card">
                                     <div class="card-body p-3">
                                         <div class="row" style="color: #f83033;">
                                             <div class="col-8">
-                                                <p class="text-sm mb-0 text-uppercase font-weight-bold" style="color: #f83033;">{{ __('Валюти') }}</p>
+                                                <p class="text-sm mb-0 text-uppercase fw-bold" style="color: #f83033;">{{ __('Валюти') }}</p>
                                             </div>
                                             <div class="col-4 text-end">
                                                 <div class="icon icon-shape bg-gradient-dark shadow-primary text-center rounded-circle">

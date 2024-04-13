@@ -20,9 +20,9 @@ Route::get('/', function () {
     return redirect('/home');
 })->middleware('auth');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'verified'], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::resource('products', ProductController::class);
 });
