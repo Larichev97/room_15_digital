@@ -17,7 +17,7 @@ final readonly class ProductStoreDTO implements FormFieldsDtoInterface
     public function __construct(ProductStoreRequest $productStoreRequest)
     {
         $this->title = trim($productStoreRequest->validated('title'));
-        $this->price = (float) $productStoreRequest->validated('price');
+        $this->price = round($productStoreRequest->validated('price'), 2);
         $this->currency_id = (int) $productStoreRequest->validated('currency_id');
     }
 

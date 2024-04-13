@@ -24,7 +24,8 @@
 3. Запустить миграции через команду: <b>php artisan migrate:fresh --seed</b>
 <br/><br/>
 4. Создать символическую ссылку из папки "public/storage" на папку "storage/app/public" через команду: <b>php artisan storage:link</b>
-
+<br/><br/>
+5. Запустить тесты через команду: <b>php artisan test</b>
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

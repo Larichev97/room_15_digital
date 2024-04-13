@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::group(['middleware' => 'verified'], function () {
+Route::group(['middleware' => ['auth', 'verified',]], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::resource('products', ProductController::class);
 });

@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
-                        @if(!empty($products) && !empty($displayedFields) && is_array($displayedFields))
+                        @if(!empty($products) && $products->total() > 0 && !empty($displayedFields) && is_array($displayedFields))
                             <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">
                                     <thead>
@@ -87,7 +87,9 @@
                                 {!! $products->links('components.pagination') !!}
                             </div>
                         @else
-                            <h2>{{ __('Товарів немає') }}</h2>
+                            <div class="p-3">
+                                <h4>{{ __('Товарів немає') }}</h4>
+                            </div>
                         @endif
                     </div>
                 </div>

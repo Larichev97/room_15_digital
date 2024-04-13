@@ -18,7 +18,7 @@ final readonly class ProductUpdateDTO implements FormFieldsDtoInterface
     public function __construct(ProductUpdateRequest $productUpdateRequest, public int $product_id)
     {
         $this->title = trim($productUpdateRequest->validated('title'));
-        $this->price = (float) $productUpdateRequest->validated('price');
+        $this->price = round($productUpdateRequest->validated('price'), 2);
         $this->currency_id = (int) $productUpdateRequest->validated('currency_id');
     }
 
