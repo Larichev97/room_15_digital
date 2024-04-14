@@ -14,6 +14,50 @@ class AuthFeatureTest extends TestCase
     /**
      * @test
      */
+    public function test_login_user_with_wrong_email()
+    {
+        User::factory()->create([
+            'name' => 'Nickname',
+            'email' => 'test_user@test.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('qwerty123'),
+        ]);
+
+        $response = $this->from('/login')->post('/login', [
+            'email' => 'wrong_email@test.com',
+            'password' => 'qwerty123',
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+        $response->assertSessionHasErrors('email');
+    }
+
+    /**
+     * @test
+     */
+    public function test_login_user_with_wrong_password()
+    {
+        $user = User::factory()->create([
+            'name' => 'Nickname',
+            'email' => 'test_user@test.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('qwerty123'),
+        ]);
+
+        $response = $this->from('/login')->post('/login', [
+            'email' => $user->email,
+            'password' => 'wrongpassword',
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertRedirect('/login');
+        $response->assertSessionHasErrors('email');
+    }
+
+    /**
+     * @test
+     */
     public function test_login_user_with_verified_email_redirects_to_home_page()
     {
         $user = User::factory()->create([
@@ -23,7 +67,7 @@ class AuthFeatureTest extends TestCase
             'password' => bcrypt('qwerty123'),
         ]);
 
-        $response = $this->post('/login', [
+        $response = $this->from('/login')->post('/login', [
             'email' => $user->email,
             'password' => 'qwerty123',
         ]);
