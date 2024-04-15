@@ -22,7 +22,7 @@ class ProductJsonResource extends JsonResource
         return [
             'productId' => (int) $this->id,
             'title' => (string) $this->title,
-            'price' => (float) $this->price,
+            'price' => round($this->price, 2),
             'currencyId' => (int) $this->currency_id,
             'currencyName' => (string) $this->currency->name,
             'currencyIsoCode' => (string) $this->currency->iso_code,

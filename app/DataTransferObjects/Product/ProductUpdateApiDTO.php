@@ -7,9 +7,9 @@ use App\Http\Requests\Product\ProductUpdateApiRequest;
 
 final readonly class ProductUpdateApiDTO implements FormFieldsDtoInterface
 {
-    public string $title;
-    public float $price;
-    public int $currency_id;
+    public string|null $title;
+    public float|null $price;
+    public int|null $currency_id;
 
     /**
      * @param ProductUpdateApiRequest $productUpdateApiRequest
@@ -17,9 +17,9 @@ final readonly class ProductUpdateApiDTO implements FormFieldsDtoInterface
      */
     public function __construct(ProductUpdateApiRequest $productUpdateApiRequest, public int $product_id)
     {
-        $this->title = trim($productUpdateApiRequest->validated('title'));
-        $this->price = round($productUpdateApiRequest->validated('price'), 2);
-        $this->currency_id = (int) $productUpdateApiRequest->validated('currency_id');
+        $this->title = $productUpdateApiRequest->get('title') !== null ? trim($productUpdateApiRequest->get('title')) : null;
+        $this->price = $productUpdateApiRequest->get('price') !== null ? round($productUpdateApiRequest->get('price'), 2) : null;
+        $this->currency_id = $productUpdateApiRequest->get('currency_id') !== null ? (int) $productUpdateApiRequest->get('currency_id') : null;
     }
 
     /**
@@ -27,11 +27,22 @@ final readonly class ProductUpdateApiDTO implements FormFieldsDtoInterface
      */
     public function getFormFieldsArray(): array
     {
-        return [
-            'title' => $this->title,
-            'price' => $this->price,
-            'currency_id' => $this->currency_id,
+        $updateData = [
             'product_id' => $this->product_id,
         ];
+
+        if (!empty($this->title)) {
+            $updateData['title'] = $this->title;
+        }
+
+        if (!empty($this->price)) {
+            $updateData['price'] = $this->price;
+        }
+
+        if (!empty($this->currency_id)) {
+            $updateData['currency_id'] = $this->currency_id;
+        }
+
+        return $updateData;
     }
 }
