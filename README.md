@@ -11,21 +11,28 @@
 
 1. Выполнить в териминале проекта или внутри PHP контейнера (docker compose exec ....) команду: <b>composer install</b>
 <br/><br/>
-2. Создать БД (utf8mb4 + utf8mb4_general_ci) и настроить подключение в файле <b>.env</b> (MySQL).
-<br/>
+2. Создать БД (utf8mb4 + utf8mb4_general_ci) и настроить подключения к <b>БД</b> + <b>Mail</b> в файле <b>.env</b>.
+<br/><br/>
 Настройки по умолчанию:
+<br/>
    - DB_CONNECTION=mysql
    - DB_HOST=127.0.0.1
    - DB_PORT=3306
    - DB_DATABASE=room_15_digital
    - DB_USERNAME=root
    - DB_PASSWORD=
+   - MAIL_HOST=sandbox.smtp.mailtrap.io
+   - MAIL_PORT=2525
+   - MAIL_USERNAME=ed57982e206737
+   - MAIL_PASSWORD=084da7ee968ab1
 <br/><br/>
 3. Запустить миграции через команду: <b>php artisan migrate:fresh --seed</b>
 <br/><br/>
 4. Создать символическую ссылку из папки "public/storage" на папку "storage/app/public" через команду: <b>php artisan storage:link</b>
 <br/><br/>
 5. Запустить тесты через команду: <b>php artisan test</b>
+<br/><br/>
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
